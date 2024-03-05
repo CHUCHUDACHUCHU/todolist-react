@@ -16,13 +16,12 @@ function TodoList() {
   return (
     <TodoListBlock>
       {todos.map((todo) => {
-        console.log(todo.done);
         return (
           <TodoItem
             key={todo.id}
             id={todo.id}
             text={todo.text}
-            done={todo.done.toString()}
+            done={todo.done}
           />
         );
       })}
