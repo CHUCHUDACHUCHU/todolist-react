@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import TodoItem from './TodoItem';
 import { useTodoState } from '../TodoContext';
@@ -12,7 +12,9 @@ const TodoListBlock = styled.div`
 
 function TodoList() {
   const todos = useTodoState();
-  console.log(todos);
+  useEffect(() => {
+    console.log('TodoList');
+  });
   return (
     <TodoListBlock>
       {todos.map((todo) => {

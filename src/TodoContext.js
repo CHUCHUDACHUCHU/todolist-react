@@ -1,4 +1,10 @@
-import React, { useReducer, createContext, useContext, useRef } from 'react';
+import React, {
+  useReducer,
+  createContext,
+  useContext,
+  useRef,
+  useEffect,
+} from 'react';
 
 const initialTodos = [
   {
@@ -45,6 +51,9 @@ const TodoNextIdContext = createContext();
 export function TodoProvider({ children }) {
   const [state, dispatch] = useReducer(todoReducer, initialTodos);
   const nextId = useRef(5);
+  useEffect(() => {
+    console.log('TodoProvider');
+  });
 
   return (
     <TodoStateContext.Provider value={state}>
